@@ -23,7 +23,7 @@
 
         <p>Total: &pound;{{ number_format($viewtotal, 2) }}</p>
 
-        <button type="submit" class="btn btn-primary mt-2">Donate via PayPal</button>
+        <button type="submit" class="btn btn-primary mt-2">Donate via PayPsal</button>
     </form>
     </div>
 </div>
