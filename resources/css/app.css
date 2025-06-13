@@ -370,3 +370,59 @@ p.biginformation {
     padding: 12px;
     border-radius: 4px;
 }
+
+.alert-warning {
+    background-color: #c39341;
+    border: 1px solid #c39341;
+    box-shadow: inset 0px 0px 0px 1px rgb(255 255 255 / 12%);
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.hero {
+    border-radius: 4px;
+    background: linear-gradient(180deg, #fda342, #259929);
+    color: white;
+    padding: 40px 20px 30px 20px;
+    text-align: center;
+}
+
+.hero-error {
+    border-radius: 4px;
+    background: linear-gradient(180deg, #d33c3c, #c34141);
+    color: white;
+    padding: 40px 20px 30px 20px;
+    text-align: center;
+}
+
+.hero-completedbefore {
+    border-radius: 4px;
+    background: linear-gradient(180deg, #d3973c, #c34164);
+    color: white;
+    padding: 40px 20px 30px 20px;
+    text-align: center;
+}
+
+.hero-success {
+    border-radius: 4px;
+    background: linear-gradient(180deg, #259929, #46b74a);
+    color: white;
+    padding: 40px 20px 30px 20px;
+    text-align: center;
+}
+
+.toptext {
+    font-weight: 700;
+    text-shadow: 0px 2px 0px rgb(0 0 0 / 35%);
+}
+
+.bottomtext {
+    text-shadow: 0px 1px 0px rgb(0 0 0 / 35%);
+}
+
+.input-group-text {
+    font-size: 18px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0px 0px rgba(0, 0, 0, .10);
+}

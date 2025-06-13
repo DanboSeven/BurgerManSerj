@@ -11,8 +11,10 @@ use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
 class Donate extends Component
 {
     public int $quantity = 1;
-    public float $mealCost = 8.50;
-    public $viewtotal = 8.50;
+    public float $mealCost = 8.00;
+    public $viewtotal = 8.00;
+
+    public $fees = false;
 
     private ?PayPalHttpClient $client = null;
 
@@ -34,6 +36,7 @@ class Donate extends Component
     public function updatedquantity($value) {
         $this->quantity = $value;
         $this->viewtotal = number_format($this->quantity * $this->mealCost, 2, '.', '');
+        $this->estimatedFee = round($this->viewtotal * 0.029 + 0.30, 2);
     }
 
     public function createOrder()
@@ -45,19 +48,35 @@ class Donate extends Component
         $request = new OrdersCreateRequest();
         $request->prefer('return=representation');
         $request->body = [
-            'intent' => 'CAPTURE',
-            'purchase_units' => [[
-                'amount' => [
+    'intent' => 'CAPTURE',
+    'purchase_units' => [[
+        'amount' => [
+            'currency_code' => 'GBP',
+            'value' => $total,
+            'breakdown' => [
+                'item_total' => [
                     'currency_code' => 'GBP',
                     'value' => $total,
                 ],
-                'description' => "{$this->quantity} meal(s) donation",
-            ]],
-            'application_context' => [
-                'return_url' => route('paypal.success'),
-                'cancel_url' => route('paypal.cancel'),
             ],
-        ];
+        ],
+        'items' => [[
+            'name' => 'Meal Donation',
+            'description' => 'Donation of meals',
+            'unit_amount' => [
+                'currency_code' => 'GBP',
+                'value' => $this->mealCost,
+            ],
+            'quantity' => $this->quantity,
+        ]],
+        'description' => "{$this->quantity} meal(s) donation",
+    ]],
+    'application_context' => [
+        'return_url' => route('paypal.success'),
+        'cancel_url' => route('paypal.cancel'),
+    ],
+];
+
 
         try {
             $response = $this->client->execute($request);
@@ -78,6 +97,6 @@ class Donate extends Component
     {
         return view('livewire.donate', [
             'total' => $this->quantity * $this->mealCost,
-        ]);
+        ])->title('Burgerman Serj - Donate');
     }
 }

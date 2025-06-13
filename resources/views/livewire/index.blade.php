@@ -91,77 +91,23 @@
       </div>
 
       <div class="box p-1">
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-plus fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 2 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">25 minutes ago</span>
-          </div>
-        </div>
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-plus fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 2 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">25 minutes ago</span>
-          </div>
-        </div>
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-plus fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 2 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">25 minutes ago</span>
-          </div>
-        </div>
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-plus fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 2 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">25 minutes ago</span>
-          </div>
-        </div>
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-plus fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 2 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">25 minutes ago</span>
-          </div>
-        </div>
-
+        @foreach ($recentDonations as $donation)
+  <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <div class="me-icon me-3">
+        <i class="fa-solid fa-plus fa-2x"></i>
+      </div>
+      <div class="leaderboard-text">
+        <div class="fw-bold">{{ $donation->user ? $donation->user->first_name . ' ' . $donation->user->last_name : $donation->payer_name }}</div>
+        <div>from <strong>{{ $donation->user ? $donation->user->location : 'Hidden' }}</strong></div>
+        <small>Donated <strong>{{ $donation->quantity }}</strong> Meal{{ $donation->quantity > 1 ? 's' : '' }}</small>
+      </div>
+    </div>
+    <div class="rank-number text-end">
+      <span class="badge rank fs-7">{{ $donation->created_at->diffForHumans() }}</span>
+    </div>
+  </div>
+@endforeach
       </div>
 
       <div class="boxheader me-1">
