@@ -9,7 +9,7 @@
             </div>
             @endif
             <div class="box mt-4 p-1">
-                <div class="boxinner px-3">
+                <div class="boxinnerdnu px-3">
                     <div class="text-center mt-3 mb-4">
                         <i class="fa-solid fa-user-plus fa-2x mb-2"></i>
                         <h4 class="fw-bold">Create An Account</h4>

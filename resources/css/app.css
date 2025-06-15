@@ -442,3 +442,16 @@ p.biginformation {
     color: #fff;
     background-color: #272727;
 }
+
+.form-switch .form-check-input {
+    width: 2.5rem;
+    height: 1.5rem;
+}
+.form-switch .form-check-input:checked {
+    background-color: #259929;
+    border-color: #259929;
+    box-shadow: inset 0px 0px 0px 1px rgb(255 255 255 / 25%);
+}
+.form-switch .form-check-label {
+    margin-left: 1rem; /* Adjust as needed */
+}
