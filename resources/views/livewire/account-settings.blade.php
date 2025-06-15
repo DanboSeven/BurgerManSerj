@@ -30,7 +30,7 @@
               <label class="form-label">Email Address</label>
               <input type="email" class="form-control" placeholder="{{ auth()->user()->email }}">
             </div>
-            <button type="submit" class="btn greenbtn mt-0"><i class="fas fa-envelope me-1"></i> Save Email</button>
+            <button type="submit" class="btn greenbtn mt-0"><i class="fas fa-envelope me-1"></i>  Update Email</button>
           </form>
         </div>
 
@@ -56,17 +56,12 @@
         <!-- Preferences Tab -->
         <div class="tab-pane fade" id="preferences" role="tabpanel">
           <form>
-            <div class="boxinner p-2">
-            <div class="form-check form-switch" style="min-height: 19px;">
-                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                <label class="form-check-label" for="switchCheckDefault">Hide Full Name <small>(This setting will remove your last name from the website)</small></label>
-            </div>
-            </div>
-            <div class="boxinner p-2 mt-2 mb-3">
-            <div class="form-check form-switch" style="min-height: 19px;">
-                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                <label class="form-check-label" for="switchCheckDefault">Hide Location <small>(This setting will hide your location on the website)</small></label>
-            </div>
+            
+            <div class="form-check form-switch mb-4">
+              <input class="form-check-input" type="checkbox" id="hideLocation">
+              <label class="form-check-label" for="hideLocation">
+                Hide Location <small class="text-muted d-block">Your location won't be shown on your profile</small>
+              </label>
             </div>
             <button type="submit" class="btn greenbtn mt-0"><i class="fas fa-check me-1"></i> Save Preferences</button>
           </form>
