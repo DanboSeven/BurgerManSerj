@@ -17,7 +17,7 @@
     <ul class="navbar-nav ml-lg-auto navbar-user-dropdown ml-2 ml-lg-0">
       @auth
       <li class="nav-item dropdown">
-        <a class="nav-link {{ request()->is('login', 'register') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+        <a class="nav-link {{ request()->is('login', 'register', 'account-settings') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">
           {{ auth()->user()->first_name }}
         </a>
