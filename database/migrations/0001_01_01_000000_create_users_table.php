@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamp('last_activity');
-            $table->integer('meals_donated');
+            $table->integer('meals_donated')->default('0');
             $table->timestamps();
         });
 

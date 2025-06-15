@@ -115,77 +115,26 @@
       </div>
 
       <div class="box p-1">
+        @php $i = 0; @endphp
+        @foreach ($donationLeaderboards as $leaderboard)
+        @php
+        $i++;
+        @endphp
         <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <div class="me-icon me-3">
               <i class="fa-solid fa-burger fa-2x"></i>
             </div>
             <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 10 Meals</small>
+              <div class="fw-bold">{{ $leaderboard->first_name . ' ' . $leaderboard->last_name }}</div>
+              <small class="text-muted">{{ $leaderboard->meals_donated }} Meals</small>
             </div>
           </div>
           <div class="rank-number text-end">
-            <span class="badge rank fs-7">#1</span>
+            <span class="badge rank fs-7">#{{ $i }}</span>
           </div>
         </div>
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-burger fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 10 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">#1</span>
-          </div>
-        </div>
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-burger fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 10 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">#1</span>
-          </div>
-        </div>
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-burger fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 10 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">#1</span>
-          </div>
-        </div>
-        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="me-icon me-3">
-              <i class="fa-solid fa-burger fa-2x"></i>
-            </div>
-            <div class="leaderboard-text">
-              <div class="fw-bold">Daniel</div>
-              <small class="text-muted">Donated 10 Meals</small>
-            </div>
-          </div>
-          <div class="rank-number text-end">
-            <span class="badge rank fs-7">#1</span>
-          </div>
-        </div>
-
+        @endforeach
       </div>
 
 

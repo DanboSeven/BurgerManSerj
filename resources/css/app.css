@@ -426,3 +426,19 @@ p.biginformation {
     border-radius: 3px;
     box-shadow: 0 1px 0px 0px rgba(0, 0, 0, .10);
 }
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: #272727;
+}
+
+.nav-pills .nav-link {
+    color: #000;
+    border-radius: var(--bs-nav-pills-border-radius);
+    margin-left: 5px;
+}
+
+.nav-pills .nav-link:hover {
+    color: #fff;
+    background-color: #272727;
+}

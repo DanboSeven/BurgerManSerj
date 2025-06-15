@@ -8,6 +8,7 @@ use PayPalCheckoutSdk\Core\ProductionEnvironment;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Orders\OrdersCaptureRequest;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Donation;
 use App\Models\DonationGoalDB;
@@ -70,6 +71,12 @@ class PayPalController extends Controller
                     'currency' => $currency,
                     'status' => $status,
                 ]);
+
+                $userId = Auth::check() ? Auth::id() : null;
+                if ($userId) {
+                    $user = Auth::user();
+                    $user->increment('meals_donated', $quantity);
+                }
             
                 $donationGoal = DonationGoalDB::latest('id')->first();
                 if ($donationGoal->active) {

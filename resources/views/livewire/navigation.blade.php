@@ -22,6 +22,7 @@
           {{ auth()->user()->first_name }}
         </a>
         <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/account-settings">Account Settings</a></li>
           <li><a class="dropdown-item" href="/logout">Logout</a></li>
         </ul>
       </li>
