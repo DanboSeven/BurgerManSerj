@@ -20,11 +20,13 @@
     <ul class="navbar-nav ml-lg-auto navbar-user-dropdown ml-2 ml-lg-0">
       @auth
       <li class="nav-item dropdown">
-        <a class="nav-link {{ request()->is('login', 'register', 'account-settings') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+        <a class="nav-link {{ request()->is('login', 'register', 'account-settings', 'transaction-history') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">
           <i class="fa-solid fa-user me-1"></i> {{ auth()->user()->first_name }}
         </a>
         <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/transaction-history"><i class="fa-solid fa-sterling-sign me-1"></i> My Transactions</a></li>
+          <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="/account-settings"><i class="fa-solid fa-cog me-1"></i> Account Settings</a></li>
           <li><a class="dropdown-item" href="/logout"><i class="fa-solid fa-door-open me-1"></i> Logout</a></li>
         </ul>

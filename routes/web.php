@@ -8,6 +8,7 @@ use App\Livewire\Logout;
 use App\Livewire\Donate;
 use App\Livewire\Leaderboards;
 use App\Livewire\AccountSettings;
+use App\Livewire\TransactionHistory;
 use App\Http\Controllers\PayPalController;
 
 Route::middleware(['last.activity'])->group(function () {
@@ -25,5 +26,6 @@ Route::middleware(['auth', 'last.activity'])->group(function () {
     Route::get('/logout', Logout::class)->name('logout');
     Route::get('/paypal/success', [PayPalController::class, 'success'])->name('paypal.success');
     Route::get('/paypal/cancel', [PayPalController::class, 'cancel'])->name('paypal.cancel');
-    Route::get('/account-settings', AccountSettings::class)->name('logout');
+    Route::get('/account-settings', AccountSettings::class)->name('account-settings');
+    Route::get('/transaction-history', TransactionHistory::class)->name('account-settings');
 });
