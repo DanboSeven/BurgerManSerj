@@ -1,4 +1,6 @@
 <div class="container mt-4">
+    <livewire:header-stats />
+    
     @if ($totalPages > 1)
     <div class="custom-pagination">
         {{-- Previous Page Link --}}

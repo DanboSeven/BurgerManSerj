@@ -1,7 +1,8 @@
 <div>
-    <div class="container">
+    <div class="container mt-4">
+        <livewire:header-stats />
         <div class="row justify-content-center">
-            <div class="col-lg-8 mt-4">
+            <div class="col-lg-8 mt-2">
                 <div class="box p-1">
                     @guest
                     <section class="hero-completedbefore">
