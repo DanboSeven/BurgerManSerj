@@ -12,7 +12,7 @@ class DonationGoal extends Component
 
     public function mount()
     {
-        $this->goal = Cache::remember('donation_goal', now()->addSeconds(30), function () {
+        $this->goal = Cache::remember('donation_goal', now()->addSeconds(90), function () {
             return DonationGoalDB::latest('id')->first();
         });
     }
