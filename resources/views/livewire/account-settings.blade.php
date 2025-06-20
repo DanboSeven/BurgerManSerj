@@ -1,4 +1,5 @@
 <div class="container mt-4">
+    <livewire:header-stats />
     <ul class="nav nav-pills mb-4 justify-content-center" id="settingsTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link @if($emailActive) active @endif" id="email-tab" data-bs-toggle="pill" data-bs-target="#email" type="button"
