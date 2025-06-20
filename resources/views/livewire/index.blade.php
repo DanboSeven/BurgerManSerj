@@ -4,9 +4,9 @@
       <div class="box position-relative p-1">
         <div class="boxinner">
           <span
-            class="position-absolute top-0 start-50 translate-middle badge @if($todayUsers <= 0) bg-danger @else bg-success @endif shadow px-2 py-1"
+            class="position-absolute top-0 start-50 translate-middle badge @if($weekUsers <= 0) bg-danger @else bg-success @endif shadow px-2 py-1"
             style="font-size: 0.65rem;">
-            @if($todayUsers <= 0)@else+@endif{{ $todayUsers }} Today </span>
+            @if($weekUsers <= 0)@else+@endif{{ $weekUsers }} This Week</span>
               <div class="pt-2">
                 <p class="bignumber fw-bold">{{ $registeredUsers }}</p>
                 <p class="biginformation mb-2">Registered Users</p>
@@ -120,10 +120,16 @@
             </div>
             <div class="leaderboard-text">
               <div class="fw-bold">
-                {{ $donation->user ? $donation->user->first_name . ' ' . $donation->user->last_name :
-                $donation->payer_name }}
+                @if ($donation->user->hide_full_name == '1')
+                {{ $donation->user->first_name }}
+                @else
+                {{ $donation->user->first_name . ' ' . $donation->user->last_name }}
+                @endif
               </div>
-              <div>from <strong>{{ $donation->user ? $donation->user->location : 'Hidden' }}</strong></div>
+              @if ($donation->user->hide_location == '1')
+              @else
+              <div>from <strong>{{ $donation->user->location }}</strong></div>
+              @endif
               <small>Donated <strong>{{ $donation->quantity }}</strong> Meal{{ $donation->quantity > 1 ? 's' : ''
                 }}</small>
             </div>
@@ -153,7 +159,17 @@
               <i class="fa-solid fa-burger fa-2x"></i>
             </div>
             <div class="leaderboard-text">
-              <div class="fw-bold">{{ $leaderboard->first_name . ' ' . $leaderboard->last_name }}</div>
+              <div class="fw-bold">
+                @if ($leaderboard->hide_full_name == '1')
+                {{ $leaderboard->first_name }}
+                @else
+                {{ $leaderboard->first_name . ' ' . $leaderboard->last_name }}
+                @endif
+              </div>
+              @if ($leaderboard->hide_location == '1')
+              @else
+              <div>from <strong>{{ $leaderboard->location }}</strong></div>
+              @endif
               <small class="text-muted">{{ $leaderboard->meals_donated }} Meals</small>
             </div>
           </div>
