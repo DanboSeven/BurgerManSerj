@@ -15,7 +15,7 @@ class Index extends Component
     public $recentDonations = [];
     public $donationLeaderboards = [];
     public $registeredUsers = 0;
-    public $todayUsers = 0;
+    public $weekUsers = 0;
     public $mealsReceived = 0;
     public $mealsReceivedThisWeek = 0;
     public $mealsOut = 0;
@@ -36,8 +36,8 @@ class Index extends Component
         $this->recentDonations = Cache::remember('recent_donations', now()->addSeconds(90), function () {
             return Donation::with('user')->where('status', 'COMPLETED')->latest()->take(5)->get();
         });
-        $this->todayUsers = Cache::remember('today_users', now()->addSeconds(90), function () {
-            return User::where('created_at', '>=', Carbon::now()->subDay())->count();
+        $this->weekUsers = Cache::remember('week_users', now()->addSeconds(90), function () use ($startOfWeek, $endOfWeek) {
+            return User::whereBetween('created_at', [$startOfWeek, $endOfWeek])->count();
         });
         $this->mealsReceived = Cache::remember('meals_received', now()->addSeconds(90), function () {
             return Donation::where('status', 'COMPLETED')->sum('quantity');
