@@ -262,8 +262,7 @@ a:hover {
 
 p.bignumber {
     font-size: 28px;
-    text-shadow: 0px 0px 10px #fcb44e;
-    color: #fd572d;
+    text-shadow: 0px 2px 0px #ffffff;
     text-align: center;
     margin-bottom: 6px;
 }

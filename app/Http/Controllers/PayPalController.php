@@ -83,6 +83,17 @@ class PayPalController extends Controller
                     $donationGoal->increment('donated', $quantity);
                 }
             } else {
+                Donation::create([
+                    'user_id' => auth()->id() ?? 0,
+                    'paypal_order_id' => $orderId,
+                    'transaction_id' => $transactionId,
+                    'payer_name' => $payerName,
+                    'payer_email' => $payerEmail,
+                    'quantity' => $quantity,
+                    'amount' => $amount,
+                    'currency' => $currency,
+                    'status' => $status,
+                ]);
                 return redirect()->route('donate')->with('pending', 'Payment Pending.');
             }
 

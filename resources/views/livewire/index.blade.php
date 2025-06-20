@@ -1,30 +1,51 @@
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-4 col-lg-4">
-      <div class="box p-1">
-        <div class="boxinner p-2">
-          <p class="bignumber fw-bold">0</p>
-          <p class="biginformation">Registered Users</p>
+  <div class="row text-center">
+    <div class="col-4 col-md-4 mb-3 mb-md-0">
+      <div class="box position-relative p-1">
+        <div class="boxinner">
+          <span
+            class="position-absolute top-0 start-50 translate-middle badge @if($todayUsers <= 0) bg-danger @else bg-success @endif shadow px-2 py-1"
+            style="font-size: 0.65rem;">
+            @if($todayUsers <= 0)@else+@endif{{ $todayUsers }} Today </span>
+              <div class="pt-2">
+                <p class="bignumber fw-bold">{{ $registeredUsers }}</p>
+                <p class="biginformation mb-2">Registered Users</p>
+              </div>
         </div>
       </div>
     </div>
-    <div class="col-4 col-lg-4">
-      <div class="box p-1">
-        <div class="boxinner p-2">
-          <p class="bignumber fw-bold">10,185</p>
-          <p class="biginformation">Meal Donations Received</p>
+
+    <div class="col-4 col-md-4 mb-3 mb-md-0">
+      <div class="box position-relative p-1">
+        <div class="boxinner">
+          <span
+            class="position-absolute top-0 start-50 translate-middle badge @if($mealsReceivedThisWeek <= 0) bg-danger @else bg-success @endif shadow px-2 py-1"
+            style="font-size: 0.65rem;">
+            @if($mealsReceivedThisWeek <= 0)@else+@endif{{ $mealsReceivedThisWeek }} This Week </span>
+              <div class="pt-2">
+                <p class="bignumber fw-bold">{{ number_format($mealsReceived) }}</p>
+                <p class="biginformation mb-2">Meals Received</p>
+              </div>
         </div>
       </div>
     </div>
-    <div class="col-4 col-lg-4">
-      <div class="box p-1">
-        <div class="boxinner p-2">
-          <p class="bignumber fw-bold">10,185</p>
-          <p class="biginformation">Meals Given Out</p>
+
+    <div class="col-4 col-md-4 mb-3 mb-md-0">
+      <div class="box position-relative p-1">
+        <div class="boxinner">
+          <span
+            class="position-absolute top-0 start-50 translate-middle badge @if($mealsOutThisWeek <= 0) bg-danger @else bg-success @endif shadow px-2 py-1"
+            style="font-size: 0.65rem;">
+            @if($mealsOutThisWeek <= 0)@else+@endif{{ $mealsOutThisWeek }} This Week </span>
+              <div class="pt-2">
+                <p class="bignumber fw-bold">{{ number_format($mealsOut) }}</p>
+                <p class="biginformation mb-2">Meals Given Out</p>
+              </div>
         </div>
       </div>
     </div>
   </div>
+
   <livewire:donation-goal />
   <div class="row">
     <div class="col-lg-8">
@@ -91,23 +112,31 @@
       </div>
 
       <div class="box p-1">
-        @foreach ($recentDonations as $donation)
-  <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
-    <div class="d-flex align-items-center">
-      <div class="me-icon me-3">
-        <i class="fa-solid fa-plus fa-2x"></i>
+        @forelse ($recentDonations as $donation)
+        <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <div class="me-icon me-3">
+              <i class="fa-solid fa-plus fa-2x"></i>
+            </div>
+            <div class="leaderboard-text">
+              <div class="fw-bold">
+                {{ $donation->user ? $donation->user->first_name . ' ' . $donation->user->last_name :
+                $donation->payer_name }}
+              </div>
+              <div>from <strong>{{ $donation->user ? $donation->user->location : 'Hidden' }}</strong></div>
+              <small>Donated <strong>{{ $donation->quantity }}</strong> Meal{{ $donation->quantity > 1 ? 's' : ''
+                }}</small>
+            </div>
+          </div>
+          <div class="rank-number text-end">
+            <span class="badge rank fs-7">{{ $donation->created_at->diffForHumans() }}</span>
+          </div>
+        </div>
+        @empty
+        <div class="alert alert-warning mb-0" role="alert">
+        <i class="fa-solid fa-bowl-food me-1"></i> No recent meal donations yet.
       </div>
-      <div class="leaderboard-text">
-        <div class="fw-bold">{{ $donation->user ? $donation->user->first_name . ' ' . $donation->user->last_name : $donation->payer_name }}</div>
-        <div>from <strong>{{ $donation->user ? $donation->user->location : 'Hidden' }}</strong></div>
-        <small>Donated <strong>{{ $donation->quantity }}</strong> Meal{{ $donation->quantity > 1 ? 's' : '' }}</small>
-      </div>
-    </div>
-    <div class="rank-number text-end">
-      <span class="badge rank fs-7">{{ $donation->created_at->diffForHumans() }}</span>
-    </div>
-  </div>
-@endforeach
+        @endforelse
       </div>
 
       <div class="boxheader me-1">
@@ -116,10 +145,8 @@
 
       <div class="box p-1">
         @php $i = 0; @endphp
-        @foreach ($donationLeaderboards as $leaderboard)
-        @php
-        $i++;
-        @endphp
+        @forelse ($donationLeaderboards as $leaderboard)
+        @php $i++; @endphp
         <div class="leaderboard p-2 d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <div class="me-icon me-3">
@@ -134,8 +161,13 @@
             <span class="badge rank fs-7">#{{ $i }}</span>
           </div>
         </div>
-        @endforeach
+        @empty
+        <div class="alert alert-warning mb-0" role="alert">
+        <i class="fa-solid fa-burger me-1"></i> No top meal donators yet
       </div>
+        @endforelse
+      </div>
+
 
 
     </div>

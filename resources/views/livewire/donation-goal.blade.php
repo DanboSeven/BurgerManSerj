@@ -1,5 +1,5 @@
 <div wire:poll.30s>
-@if ($goal->active)
+@if ($goal && $goal->active)
 @php
 $count1 = $goal->donated / $goal->goal;
 $count2 = $count1 * 100;
