@@ -41,5 +41,5 @@ $current_percent = $count;
 
     </div>
   </div>
-  </div>
   @endif
+</div>
