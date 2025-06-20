@@ -79,7 +79,7 @@ class PayPalController extends Controller
                 }
             
                 $donationGoal = DonationGoalDB::latest('id')->first();
-                if ($donationGoal->active) {
+                if ($donationGoal && $donationGoal->active) {
                     $donationGoal->increment('donated', $quantity);
                 }
             } else {
