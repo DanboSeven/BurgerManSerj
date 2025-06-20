@@ -6,12 +6,14 @@ use App\Livewire\Login;
 use App\Livewire\Register;
 use App\Livewire\Logout;
 use App\Livewire\Donate;
+use App\Livewire\Leaderboards;
 use App\Livewire\AccountSettings;
 use App\Http\Controllers\PayPalController;
 
 Route::middleware(['last.activity'])->group(function () {
     Route::get('/', Index::class)->name('home');
     Route::get('/donate', Donate::class)->name('donate');
+    Route::get('/leaderboards', Leaderboards::class)->name('leaderboards');
 });
 
 Route::group(['middleware'=>'guest'], function(){

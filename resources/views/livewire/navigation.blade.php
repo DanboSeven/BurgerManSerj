@@ -7,10 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('/') ? 'navblue fw-bold' : '' }}" href="/" >Home</a>
+          <a class="nav-link {{ request()->is('/') ? 'navblue fw-bold' : '' }}" href="/" ><i class="fas fa-home me-1"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->is('donate') ? 'navblue fw-bold' : '' }}" href="/donate" >Donate</a>
+          <a class="nav-link {{ request()->is('donate') ? 'navblue fw-bold' : '' }}" href="/donate" ><i class="fa-solid fa-sterling-sign me-1"></i> Donate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->is('leaderboards') ? 'navblue fw-bold' : '' }}" href="/leaderboards" ><i class="fa-solid fa-chart-simple me-1"></i> Leaderboards</a>
         </li>
       </ul>
     </div>
@@ -19,22 +22,22 @@
       <li class="nav-item dropdown">
         <a class="nav-link {{ request()->is('login', 'register', 'account-settings') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">
-          {{ auth()->user()->first_name }}
+          <i class="fa-solid fa-user me-1"></i> {{ auth()->user()->first_name }}
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/account-settings">Account Settings</a></li>
-          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          <li><a class="dropdown-item" href="/account-settings"><i class="fa-solid fa-cog me-1"></i> Account Settings</a></li>
+          <li><a class="dropdown-item" href="/logout"><i class="fa-solid fa-door-open me-1"></i> Logout</a></li>
         </ul>
       </li>
       @else
       <li class="nav-item dropdown">
         <a class="nav-link {{ request()->is('login', 'register') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">
-          Account
+          <i class="fa-solid fa-user me-1"></i> Account
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/login">Login</a></li>
-          <li><a class="dropdown-item" href="/register">Register</a></li>
+          <li><a class="dropdown-item" href="/login"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</a></li>
+          <li><a class="dropdown-item" href="/register"><i class="fa-solid fa-user-plus me-1"></i> Register</a></li>
         </ul>
       </li>
       @endauth
