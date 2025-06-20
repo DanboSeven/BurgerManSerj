@@ -370,6 +370,15 @@ p.biginformation {
     border-radius: 4px;
 }
 
+.alert-success {
+    background-color: #259929;
+    border: 1px solid #259929;
+    box-shadow: inset 0px 0px 0px 1px rgb(255 255 255 / 12%);
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+}
+
 .alert-warning {
     background-color: #c39341;
     border: 1px solid #c39341;
