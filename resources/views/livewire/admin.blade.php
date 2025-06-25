@@ -11,12 +11,14 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <strong>{{ $userActivity->first_name . ' ' . $userActivity->last_name }}</strong><br>
+                                    <strong>{{ $userActivity->first_name . ' ' . $userActivity->last_name
+                                        }}</strong><br>
                                     <small class="text-muted">{{ $userActivity->email }}</small><br />
                                     <small class="text-muted">{{ $userActivity->location }}</small>
                                 </div>
                             </div>
-                            <span class="badge rank"><i class="fa-solid fa-clock me-1"></i> {{ $userActivity->last_activity->format('d/m/Y H:i') }}</span>
+                            <span class="badge rank"><i class="fa-solid fa-clock me-1"></i> {{
+                                $userActivity->last_activity->format('d/m/Y H:i') }}</span>
                         </li>
                         @empty
                         <div class="alert alert-danger mb-0" role="alert">
@@ -24,7 +26,7 @@
                         </div>
                         @endforelse
                     </ul>
-                </div>                
+                </div>
             </div>
         </div>
         <div class="col-lg-4">
@@ -38,12 +40,14 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <strong>{{ $recentCreated->first_name . ' ' . $recentCreated->last_name }}</strong><br>
+                                    <strong>{{ $recentCreated->first_name . ' ' . $recentCreated->last_name
+                                        }}</strong><br>
                                     <small class="text-muted">{{ $recentCreated->email }}</small><br />
                                     <small class="text-muted">{{ $recentCreated->location }}</small>
                                 </div>
                             </div>
-                            <span class="badge rank"><i class="fa-solid fa-clock me-1"></i> {{ $recentCreated->created_at->format('d/m/Y H:i') }}</span>
+                            <span class="badge rank"><i class="fa-solid fa-clock me-1"></i> {{
+                                $recentCreated->created_at->format('d/m/Y H:i') }}</span>
                         </li>
                         @empty
                         <div class="alert alert-danger mb-0" role="alert">
@@ -51,7 +55,7 @@
                         </div>
                         @endforelse
                     </ul>
-                </div>                
+                </div>
             </div>
         </div>
         <div class="col-lg-4">
@@ -84,7 +88,8 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <span class="badge rank"><i class="fa-solid fa-clock me-1"></i> {{ $staff->created_at->format('d/m/Y H:i') }}</span>
+                            <span class="badge rank"><i class="fa-solid fa-clock me-1"></i> {{
+                                $staff->created_at->format('d/m/Y H:i') }}</span>
                         </li>
                         @empty
                         <div class="alert alert-danger mb-0" role="alert">
@@ -92,7 +97,7 @@
                         </div>
                         @endforelse
                     </ul>
-                </div>                
+                </div>
             </div>
         </div>
     </div>

@@ -1,12 +1,12 @@
 <div wire:poll.30s>
-@if ($goal && $goal->active)
-@php
-$count1 = $goal->donated / $goal->goal;
-$count2 = $count1 * 100;
-$count = number_format($count2, 0);
-$current_percent = $count;
-@endphp
-<div class="boxheader">
+  @if ($goal && $goal->active)
+  @php
+  $count1 = $goal->donated / $goal->goal;
+  $count2 = $count1 * 100;
+  $count = number_format($count2, 0);
+  $current_percent = $count;
+  @endphp
+  <div class="boxheader">
     <i class="fa-solid fa-bullseye me-1" style="color: #52b256;"></i> <strong>Meal Donation Goal</strong>
   </div>
   <div class="box p-1">
@@ -34,8 +34,8 @@ $current_percent = $count;
 
       <div class="text-center">
         <a href="/donate">
-        <button class="btn greenbtn"><i class="fa-solid fa-bowl-food me-1"></i> Donate a Meal</button>
-</a>
+          <button class="btn greenbtn"><i class="fa-solid fa-bowl-food me-1"></i> Donate a Meal</button>
+        </a>
       </div>
 
 

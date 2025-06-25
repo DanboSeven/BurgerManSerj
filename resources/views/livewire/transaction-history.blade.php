@@ -29,7 +29,8 @@
                             <td style="text-align:center;"><i class="fa-solid fa-calendar me-1"></i> {{
                                 $transaction->created_at->format('M d, Y') }}</td>
                             <td style="text-align:center;"><i class="fa-brands fa-paypal me-1"></i> PayPal</td>
-                            <td style="text-align:center;"><i class="fa-solid fa-circle-check me-1" style="color: #259929;"></i> {{
+                            <td style="text-align:center;"><i class="fa-solid fa-circle-check me-1"
+                                    style="color: #259929;"></i> {{
                                 ucfirst(strtolower($transaction->status)) }}</td>
                             <td style="text-align:center;font-weight: 700;">&pound;{{
                                 number_format($transaction->amount, 2) }}</td>

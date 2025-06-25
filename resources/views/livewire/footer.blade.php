@@ -25,7 +25,8 @@
             </div>
 
             <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3 text-center">
-                <i class="fa-solid fa-users me-1"></i> Logged in: <strong>{{ $loggedIn }}</strong> <span class="m-2">|</span>
+                <i class="fa-solid fa-users me-1"></i> Logged in: <strong>{{ $loggedIn }}</strong> <span
+                    class="m-2">|</span>
                 <i class="fa-solid fa-eye me-1"></i> Guests: <strong>{{ $guests }}</strong> <span class="m-2">|</span>
                 <i class="fa-solid fa-globe me-1"></i> Total: <strong>{{ $total }}</strong>
             </div>

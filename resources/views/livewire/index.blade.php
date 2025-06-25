@@ -94,8 +94,8 @@
         </div>
         @empty
         <div class="alert alert-warning mb-0" role="alert">
-        <i class="fa-solid fa-bowl-food me-1"></i> No recent meal donations yet.
-      </div>
+          <i class="fa-solid fa-bowl-food me-1"></i> No recent meal donations yet.
+        </div>
         @endforelse
       </div>
 
@@ -133,8 +133,8 @@
         </div>
         @empty
         <div class="alert alert-warning mb-0" role="alert">
-        <i class="fa-solid fa-burger me-1"></i> No top meal donators yet
-      </div>
+          <i class="fa-solid fa-burger me-1"></i> No top meal donators yet
+        </div>
         @endforelse
       </div>
 

@@ -20,14 +20,16 @@
                         <div class="row">
                             <div class="col-lg-6 mb-3">
                                 <label for="firstname" class="form-label fw-semibold">First Name</label>
-                                <input type="text" class="form-control" id="firstname" placeholder="First Name" wire:model="firstname" required>
+                                <input type="text" class="form-control" id="firstname" placeholder="First Name"
+                                    wire:model="firstname" required>
                                 @if ($errors->has('firstname'))
                                 <span class="text-danger">{{ $errors->first('firstname') }}</span>
                                 @endif
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="lastname" class="form-label fw-semibold">Last Name</label>
-                                <input type="text" class="form-control" id="lastname" placeholder="Last Name" wire:model="lastname" required>
+                                <input type="text" class="form-control" id="lastname" placeholder="Last Name"
+                                    wire:model="lastname" required>
                                 @if ($errors->has('lastname'))
                                 <span class="text-danger">{{ $errors->first('lastname') }}</span>
                                 @endif
@@ -35,7 +37,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label fw-semibold">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com" wire:model="email" required>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com"
+                                wire:model="email" required>
                             @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
@@ -43,8 +46,10 @@
 
                         <div class="mb-3">
                             <label for="location" class="form-label fw-semibold">Location</label>
-                            <input type="text" class="form-control" id="location" placeholder="Location" wire:model="location" required>
-                            <small>Your location is displayed across the website, you are able to hide this in your user settings</small>
+                            <input type="text" class="form-control" id="location" placeholder="Location"
+                                wire:model="location" required>
+                            <small>Your location is displayed across the website, you are able to hide this in your user
+                                settings</small>
                             @if ($errors->has('location'))
                             <span class="text-danger">{{ $errors->first('location') }}</span>
                             @endif
@@ -52,7 +57,8 @@
 
                         <div class="mb-3">
                             <label for="password" class="form-label fw-semibold">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="••••••••" wire:model="password" required>
+                            <input type="password" class="form-control" id="password" placeholder="••••••••"
+                                wire:model="password" required>
                             @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif
@@ -60,7 +66,8 @@
 
                         <div class="mb-3">
                             <label for="passwordconfirmation" class="form-label fw-semibold">Confirm Password</label>
-                            <input type="password" class="form-control" id="passwordconfirmation" placeholder="••••••••" wire:model="password_confirmation" required>
+                            <input type="password" class="form-control" id="passwordconfirmation" placeholder="••••••••"
+                                wire:model="password_confirmation" required>
                         </div>
 
                         <div class="mb-1">
