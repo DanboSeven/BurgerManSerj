@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('hide_full_name')->default('0');
             $table->integer('hide_location')->default('0');
             $table->integer('meals_donated')->default('0');
+            $table->json('permissions')->default(json_encode(["1"]));
             $table->timestamp('last_activity');
             $table->timestamps();
         });

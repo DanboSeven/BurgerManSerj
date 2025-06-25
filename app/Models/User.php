@@ -26,6 +26,9 @@ class User extends Authenticatable
         'last_activity',
     ];
 
+    protected $casts = [
+    'permissions' => 'array',
+];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -35,6 +38,17 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    
+    public function hasPermission($permissions): bool
+    {
+        $userPermissions = $this->permissions ?? [];
+        if (is_string($permissions)) {
+            return in_array($permissions, $userPermissions);
+        }
+        return count(array_intersect($permissions, $userPermissions)) > 0;
+    }
+
+
 
     /**
      * Get the attributes that should be cast.
