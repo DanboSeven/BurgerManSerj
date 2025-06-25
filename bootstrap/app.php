@@ -31,6 +31,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 \Illuminate\Support\Facades\Log::warning('403 Forbidden', [
                     'url' => $request->fullUrl(),
                     'ip' => $request->ip(),
+                    'user_id' => optional($request->user())->id,
                     'user_agent' => $request->userAgent(),
                     'referer' => $request->headers->get('referer'),
                     'message' => $e->getMessage(),

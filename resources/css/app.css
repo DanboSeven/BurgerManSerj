@@ -307,6 +307,33 @@ p.biginformation {
   transition: width 1s ease-in-out;
 }
 
+.orangebtn {
+    margin-top: 14px;
+    background-color: #fc6831;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    padding: 5px;
+    transition: all .3s ease;
+}
+
+.orangebtn:hover {
+    background-color: #dd5929;
+    color: #fff;
+    translate: 0 2px;
+}
+
+.orangebtn:active {
+    background-color: #dd5929!important;
+    color: #fff!important;
+}
+
+.orangebtn:disabled {
+    background-color: #dd5929!important;
+    color: #fff!important;
+}
+
 .greenbtn {
     margin-top: 14px;
     background-color: #259929;

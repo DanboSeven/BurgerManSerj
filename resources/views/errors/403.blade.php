@@ -11,13 +11,13 @@
                                 style="max-height: 300px;">
                             <div class="text-center">
                                 <p class="fs-3">
-                                    <span class="text-danger">Oops!</span> You're not allowed to access this page.
+                                    <span style="color: #fc6831;">Oops!</span> You're not allowed to access this page.
                                 </p>
                                 <p class="lead">
                                     {{ $exception->getMessage() ?: 'This area is restricted to authorized users only.'
                                     }}
                                 </p>
-                                <a href="{{ route('home') }}" class="btn greenbtn mt-3 mb-4">
+                                <a href="{{ route('home') }}" class="btn orangebtn mt-3 mb-4">
                                     <i class="bi bi-arrow-left-circle me-1"></i> Back to Home
                                 </a>
                             </div>
