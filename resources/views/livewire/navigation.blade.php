@@ -21,7 +21,7 @@
         @auth
         @if (auth()->user()->hasPermission(['2', '3']))
         <li class="nav-item dropdown">
-          <a class="nav-link {{ request()->is('admin') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#"
+          <a class="nav-link {{ request()->is('admin', 'admin/*') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#"
             role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-cog me-1"></i> Admin
           </a>
@@ -30,8 +30,8 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="/account-settings"><i class="fa-solid fa-cog me-1"></i> Account
-                Settings</a></li>
+            <li><span class="dropdown-item-text">User Management</span></li>
+            <li><a class="dropdown-item" href="/admin/manage-users"><i class="fa-solid fa-user me-1"></i> Manage Users</a></li>
             <li><a class="dropdown-item" href="/logout"><i class="fa-solid fa-door-open me-1"></i> Logout</a></li>
           </ul>
         </li>
