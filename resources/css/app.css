@@ -151,6 +151,14 @@ span.social.snapchat:hover {
     box-shadow: inset 0px 0px 0px 1px rgb(255 255 255 / 20%), inset 0px -2px 0px 0px rgb(0 0 0 / 25%), 0 .125rem .25rem rgba(0, 0, 0, .09) !important;
 }
 
+.logo2 {
+    background-image: url(../images/serjlogo.png);
+    background-size: 100%;
+    margin: 30px auto 30px auto;
+    width: 260px;
+    height: 260px;
+}
+
 .logo {
     background-image: url(../images/serjlogo.png);
     background-size: 100%;

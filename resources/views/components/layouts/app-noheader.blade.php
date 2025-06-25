@@ -17,12 +17,9 @@
 </head>
 
 <body>
-    <livewire:navigation />
-    <livewire:header />
     <main>
         {{ $slot }}
     </main>
-    <livewire:footer />
 </body>
 
 </html>

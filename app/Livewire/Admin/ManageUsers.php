@@ -9,7 +9,7 @@ class ManageUsers extends Component
     public function mount()
     {
         if (!auth()->user()->hasPermission(['2', '3'])) {
-            abort(403, 'Unauthorized');
+            abort(403, 'This area is restricted to authorised users only.');
         }
     }
 

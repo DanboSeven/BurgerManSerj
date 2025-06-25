@@ -15,7 +15,7 @@ class Admin extends Component
     public function mount()
     {
         if (!auth()->user()->hasPermission(['2', '3'])) {
-            abort(403, 'Unauthorized');
+            abort(403, 'This area is restricted to authorised users only.');
         }
 
         $this->recentUserActivity = User::where('last_activity', '>=', Carbon::now()->subHours(12))->where('id', '!=', auth()->id())->orderByDesc('last_activity')->take(10)->get();
