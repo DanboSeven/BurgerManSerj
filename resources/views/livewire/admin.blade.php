@@ -77,7 +77,11 @@
                                 <div>
                                     <strong>{{ $staff->first_name . ' ' . $staff->last_name }}</strong><br>
                                     <small class="text-muted">{{ $staff->email }}</small><br />
-                                    @foreach ($staff->permissions as $p)
+                                    <small class="text-muted">{{ $staff->location }}</small><br />
+                                </div>
+                            </div>
+                            <span>
+                                @foreach ($staff->permissions as $p)
                                     @if ($p !== '1')
                                     @php
                                     $label = $permissionLabels[$p]['label'] ?? 'Unknown';
@@ -86,10 +90,7 @@
                                     <span class="badge bg-{{ $color }} me-1">{{ $label }}</span>
                                     @endif
                                     @endforeach
-                                </div>
-                            </div>
-                            <span class="badge rank"><i class="fa-solid fa-clock me-1"></i> {{
-                                $staff->created_at->format('d/m/Y H:i') }}</span>
+                            </span>
                         </li>
                         @empty
                         <div class="alert alert-danger mb-0" role="alert">
