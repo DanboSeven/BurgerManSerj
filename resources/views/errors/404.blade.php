@@ -14,7 +14,7 @@
                                     <span class="text-primary">Oops!</span> This page was not found
                                 </p>
                                 <p class="lead">
-                                    {{ $exception->getMessage() ?: '' }}
+                                    The page you're looking for doesn't exist or has been moved.
                                 </p>
                                 <a href="{{ route('home') }}" class="btn greenbtn mt-3 mb-4">
                                     <i class="bi bi-arrow-left-circle me-1"></i> Back to Home

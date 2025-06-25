@@ -17,5 +17,24 @@ return Application::configure(basePath: dirname(__DIR__))
     ]);
 })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->renderable(function (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e, $request) {
+            \Illuminate\Support\Facades\Log::warning('404 Not Found', [
+                'url' => $request->fullUrl(),
+                'ip' => $request->ip(),
+                'user_agent' => $request->userAgent(),
+                'referer' => $request->headers->get('referer'),
+            ]);
+        });
+
+        $exceptions->renderable(function (\Symfony\Component\HttpKernel\Exception\HttpException $e, $request) {
+            if ($e->getStatusCode() === 403) {
+                \Illuminate\Support\Facades\Log::warning('403 Forbidden', [
+                    'url' => $request->fullUrl(),
+                    'ip' => $request->ip(),
+                    'user_agent' => $request->userAgent(),
+                    'referer' => $request->headers->get('referer'),
+                    'message' => $e->getMessage(),
+                ]);
+            }
+        });
     })->create();
