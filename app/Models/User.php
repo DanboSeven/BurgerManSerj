@@ -25,10 +25,12 @@ class User extends Authenticatable
         'password',
         'last_activity',
     ];
-
+    
     protected $casts = [
-    'permissions' => 'array',
-];
+        'permissions' => 'array',
+        'last_activity' => 'datetime',
+    ];
+    
     /**
      * The attributes that should be hidden for serialization.
      *

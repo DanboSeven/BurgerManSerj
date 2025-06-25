@@ -18,7 +18,7 @@
         @auth
         @if (auth()->user()->hasPermission(['2', '3']))
         <li class="nav-item dropdown">
-        <a class="nav-link {{ request()->is('login', 'register', 'account-settings', 'transaction-history') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+        <a class="nav-link {{ request()->is('admin') ? 'navblue fw-bold' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">
           <i class="fa-solid fa-cog me-1"></i> Admin
         </a>
