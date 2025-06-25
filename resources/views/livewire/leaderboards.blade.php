@@ -47,7 +47,7 @@
     @endauth
             <div class="d-flex align-items-center">
                 <span class="badge leaderboard-rank-number me-3" style="width: 2.2rem;height:2.2rem;">
-                    #{{ $startRank + $index }}
+                    {{ $startRank + $index }}
                 </span>
                 <div>
                     <strong>
