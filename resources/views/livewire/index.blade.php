@@ -15,7 +15,7 @@
           Thanks to your generous donations and continued support, we're able to give away <strong>80-90 freshly cooked
             meals every week</strong> — right from our high street kitchen.
           <hr>
-          <img src="{{asset('/build/assets/serj.jpeg')}}" align="right" width="180" style="border-radius: 100%;">
+          <img src="images/serj.jpeg" align="right" width="180" style="border-radius: 100%;">
 
           <i class="fa-solid fa-burger"></i> <strong>From Burgers to Community Giving</strong><br />
           In 2021, I opened <strong>Hungry House Burgers & Kebab</strong> on Chatham High Street with little more than
